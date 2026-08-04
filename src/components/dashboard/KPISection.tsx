@@ -62,7 +62,7 @@ export default function KPISection() {
 
       <div className="
         grid
-        grid-cols-1 sm:grid-cols-2 2xl:grid-cols-4
+        grid-cols-1 sm:grid-cols-2 xl:grid-cols-4
         gap-3
       ">
 
