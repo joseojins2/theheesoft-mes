@@ -1,4 +1,6 @@
 import DataManagementCard from "@/components/master/DataManagementCard";
+import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
 
 
 const dataMenus = [
@@ -72,7 +74,12 @@ const dataMenus = [
 
 
 
-export default function DataManagementPage(){
+export default async function DataManagementPage(){
+
+const cookieStore = await cookies();
+if (cookieStore.get("mes_role")?.value !== "master") {
+  redirect("/login");
+}
 
 
 return (

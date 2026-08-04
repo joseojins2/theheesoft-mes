@@ -68,9 +68,9 @@ export default function AnalysisPage() {
 
       <Sidebar />
 
-      <main className="flex-1 overflow-y-auto">
+      <main className="min-w-0 flex-1 overflow-y-auto lg:ml-[220px]">
 
-        <div className="mx-auto max-w-[1750px] px-10 py-8">
+        <div className="mx-auto max-w-[1750px] px-4 py-6 sm:px-6 lg:px-10 lg:py-8">
 
           <Header />
 
@@ -88,7 +88,7 @@ export default function AnalysisPage() {
 
             </div>
 
-            <div className="grid grid-cols-4 gap-7">
+            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-4 xl:gap-7">
 
               {menus.map((menu) => {
                 const Icon = menu.icon;

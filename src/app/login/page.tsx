@@ -11,14 +11,33 @@ export default function LoginPage() {
 
   const [id, setId] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
 
-  const handleLogin = () => {
+  const handleLogin = async () => {
+    setError("");
+    setIsLoading(true);
 
-    // 추후 DB 인증 연결 예정
-    // 현재는 테스트용 대시보드 이동
+    try {
+      const response = await fetch("/api/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id, password }),
+      });
+      const result = await response.json();
 
-    router.push("/dashboard");
+      if (!response.ok) {
+        setError(result.message ?? "로그인 중 오류가 발생했습니다.");
+        return;
+      }
+
+      router.push(result.isMaster ? "/master/data" : "/dashboard");
+    } catch {
+      setError("로그인 서버에 연결할 수 없습니다.");
+    } finally {
+      setIsLoading(false);
+    }
 
   };
 
@@ -122,6 +141,7 @@ export default function LoginPage() {
 
           <button
             onClick={handleLogin}
+            disabled={isLoading}
             className="
               h-12
               w-full
@@ -133,8 +153,10 @@ export default function LoginPage() {
               hover:bg-blue-700
             "
           >
-            로그인
+            {isLoading ? "확인 중..." : "로그인"}
           </button>
+
+          {error && <p className="text-center text-sm font-medium text-red-500">{error}</p>}
 
 
         </div>

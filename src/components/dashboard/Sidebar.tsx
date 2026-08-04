@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 import {
   LayoutDashboard,
@@ -28,7 +29,7 @@ const menus = [
   {
     title:"기준정보",
     icon:Database,
-    path:"/master/data",
+    path:"/master",
   },
 
   {
@@ -79,6 +80,8 @@ const menus = [
 
 export default function Sidebar(){
 
+const pathname = usePathname();
+
 
 return(
 
@@ -95,6 +98,7 @@ w-[220px]
 flex-col
 bg-[#5FB8B2]
 text-white
+max-lg:hidden
 "
 
 >
@@ -159,7 +163,13 @@ px-3
 
 {
 
-menus.map((menu,index)=>(
+menus.map((menu)=>{
+
+const isActive = menu.path === "/dashboard"
+  ? pathname === menu.path
+  : pathname === menu.path || pathname.startsWith(`${menu.path}/`);
+
+return (
 
 
 <Link
@@ -180,7 +190,7 @@ text-sm
 font-bold
 transition
 
-${index===0
+${isActive
 ?
 "bg-white/20 text-white shadow-sm"
 :
@@ -233,7 +243,8 @@ opacity-60
 </Link>
 
 
-))
+);
+})
 
 
 }

@@ -2,7 +2,6 @@ import Sidebar from "@/components/dashboard/Sidebar";
 import Header from "@/components/dashboard/Header";
 import ModuleGrid from "@/components/dashboard/ModuleGrid";
 import KPISection from "@/components/dashboard/KPISection";
-import NotificationPanel from "@/components/dashboard/NotificationPanel";
 import QuickMenu from "@/components/dashboard/QuickMenu";
 
 export default function DashboardPage() {
@@ -11,7 +10,7 @@ export default function DashboardPage() {
 
       <Sidebar />
 
-      <main className="ml-[220px] min-w-0 flex-1 overflow-hidden p-6">
+      <main className="min-w-0 flex-1 overflow-hidden p-3 sm:p-4 lg:ml-[220px] lg:p-6">
 
         <Header />
 
@@ -19,14 +18,11 @@ export default function DashboardPage() {
           <ModuleGrid />
         </section>
 
-        <section className="mt-5 grid grid-cols-12 items-stretch gap-5">
-          <div className="col-span-6">
+        <section className="mt-5 grid grid-cols-1 items-stretch gap-5 xl:grid-cols-4">
+          <div className="xl:col-span-3">
             <KPISection />
           </div>
-          <div className="col-span-4">
-            <NotificationPanel />
-          </div>
-          <div className="col-span-2">
+          <div>
             <QuickMenu />
           </div>
         </section>

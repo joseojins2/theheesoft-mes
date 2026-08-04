@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 interface Props{
   title:string;
   eng:string;
@@ -5,6 +7,7 @@ interface Props{
   label:string;
   color:string;
   menus:string[];
+  href:string;
 }
 
 
@@ -14,14 +17,16 @@ export default function ModuleCard({
  value,
  label,
  color,
- menus
+ menus,
+ href
 }:Props){
 
 return(
 
 <div
 className="
-w-[150px]
+w-full
+min-w-0
 h-[520px]
 bg-white
 rounded-xl
@@ -96,7 +101,7 @@ flex-col
 className="
 text-[10px]
 font-bold
-text-slate-400
+text-slate-700
 "
 >
 {eng}
@@ -109,6 +114,7 @@ text-[16px]
 font-bold
 mt-2
 whitespace-nowrap
+text-black
 "
 >
 {title}
@@ -119,7 +125,7 @@ whitespace-nowrap
 className="
 mt-5
 text-[11px]
-text-slate-400
+text-slate-700
 "
 >
 {label}
@@ -158,7 +164,8 @@ className="
 flex
 justify-between
 text-[11px]
-text-slate-600
+text-black
+font-medium
 "
 >
 
@@ -178,13 +185,17 @@ text-slate-600
 </div>
 
 
-<button
+<Link
+href={href}
 className="
 h-9
 rounded-lg
 border
 text-xs
 font-bold
+flex
+items-center
+justify-center
 "
 style={{
 borderColor:color,
@@ -192,7 +203,7 @@ color:color
 }}
 >
 바로가기 →
-</button>
+</Link>
 
 
 </div>

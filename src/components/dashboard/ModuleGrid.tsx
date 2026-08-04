@@ -4,6 +4,7 @@ const modules = [
   {
     title:"기준정보",
     eng:"MASTER DATA",
+    href:"/master",
     value:"1,245건",
     label:"등록된 마스터",
     color:"#2563EB",
@@ -18,11 +19,11 @@ const modules = [
   {
     title:"영업/판매",
     eng:"SALES",
+    href:"/sales",
     value:"₩1,245,680,000",
     label:"오늘 매출",
     color:"#16A34A",
     menus:[
-      "데이터 관리",
       "입고 현황",
       "출고 현황",
       "출고-거래명세표",
@@ -32,6 +33,7 @@ const modules = [
   {
     title:"생산정보",
     eng:"PRODUCTION",
+    href:"/production",
     value:"25,430 EA",
     label:"오늘 생산량",
     color:"#F97316",
@@ -46,6 +48,7 @@ const modules = [
   {
     title:"자재정보",
     eng:"MATERIAL",
+    href:"/material",
     value:"₩2,458,700,000",
     label:"현재 재고 금액",
     color:"#7C3AED",
@@ -60,6 +63,7 @@ const modules = [
   {
     title:"사급정보",
     eng:"SUPPLIER",
+    href:"/supplier",
     value:"156건",
     label:"사급 처리 건수",
     color:"#0891B2",
@@ -73,6 +77,7 @@ const modules = [
   {
     title:"발주정보",
     eng:"PURCHASE",
+    href:"/purchase",
     value:"87건",
     label:"발주 진행 건수",
     color:"#2563EB",
@@ -86,6 +91,7 @@ const modules = [
   {
     title:"분석정보",
     eng:"ANALYSIS",
+    href:"/analysis",
     value:"₩42,580,000",
     label:"총 손실 금액",
     color:"#EF4444",
@@ -100,6 +106,7 @@ const modules = [
   {
     title:"바코드정보",
     eng:"BARCODE",
+    href:"/barcode",
     value:"8,532건",
     label:"스캔 등록 건수",
     color:"#334155",
@@ -119,8 +126,11 @@ export default function ModuleGrid(){
     <div
       className="
       grid
-      grid-cols-8
-      gap-2
+      grid-cols-1
+      sm:grid-cols-2
+      xl:grid-cols-4
+      2xl:grid-cols-8
+      gap-3
       w-full
       "
     >

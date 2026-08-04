@@ -14,10 +14,11 @@ export default function Header() {
   const router = useRouter();
 
 
-  const handleLogout = () => {
+  const handleLogout = async () => {
 
     // 추후 토큰 삭제 / DB 세션 종료 연결
 
+    await fetch("/api/logout", { method: "POST" });
     router.push("/login");
 
   };
@@ -29,6 +30,7 @@ export default function Header() {
       className="
         relative
         flex
+        flex-col
         items-center
         justify-center
         border-b border-slate-200
@@ -42,7 +44,7 @@ export default function Header() {
 
         <h1
           className="
-            text-[32px]
+            text-2xl sm:text-[32px]
             font-black
             text-slate-800
           "
@@ -68,7 +70,7 @@ export default function Header() {
 
       <div
         className="
-          absolute right-0 top-3 flex
+          mt-4 flex flex-wrap justify-center md:absolute md:right-0 md:top-3 md:mt-0
           items-center
           gap-3
         "
@@ -84,7 +86,7 @@ export default function Header() {
             rounded-xl
             border
             border-slate-200
-            px-4
+            px-3 sm:px-4
             text-sm
             font-bold
             text-slate-600
@@ -106,7 +108,7 @@ export default function Header() {
             rounded-xl
             border
             border-slate-200
-            px-4
+            px-3 sm:px-4
             text-sm
             font-bold
             text-slate-600
@@ -130,7 +132,7 @@ export default function Header() {
             gap-2
             rounded-xl
             bg-slate-800
-            px-4
+            px-3 sm:px-4
             text-sm
             font-bold
             text-white
