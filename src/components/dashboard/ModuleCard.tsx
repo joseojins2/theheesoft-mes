@@ -1,4 +1,4 @@
-interface Props {
+interface Props{
   title:string;
   eng:string;
   value:string;
@@ -9,21 +9,22 @@ interface Props {
 
 
 export default function ModuleCard({
-  title,
-  eng,
-  value,
-  label,
-  color,
-  menus
+ title,
+ eng,
+ value,
+ label,
+ color,
+ menus
 }:Props){
 
-return (
+return(
 
 <div
 className="
+w-[150px]
 h-[520px]
-rounded-xl
 bg-white
+rounded-xl
 border
 border-slate-200
 shadow-sm
@@ -34,14 +35,12 @@ flex-col
 >
 
 
-{/* 상단 색상 영역 */}
-
 <div
 className="
 h-[125px]
 flex
-items-center
 justify-center
+items-center
 relative
 "
 style={{
@@ -52,12 +51,11 @@ backgroundColor:color
 <div
 className="
 absolute
-bottom-[-35px]
-w-[75px]
-h-[75px]
+bottom-[-38px]
+w-[78px]
+h-[78px]
 rounded-full
 bg-white
-border
 flex
 items-center
 justify-center
@@ -67,8 +65,8 @@ shadow
 
 <div
 className="
-w-10
-h-10
+w-12
+h-12
 rounded-full
 border-4
 "
@@ -87,16 +85,16 @@ borderColor:color
 className="
 pt-12
 px-4
+flex-1
 flex
 flex-col
-flex-1
 "
 >
 
 
 <p
 className="
-text-[11px]
+text-[10px]
 font-bold
 text-slate-400
 "
@@ -107,20 +105,20 @@ text-slate-400
 
 <h2
 className="
-text-[18px]
+text-[16px]
 font-bold
-mt-1
+mt-2
+whitespace-nowrap
 "
 >
 {title}
 </h2>
 
 
-
 <p
 className="
 mt-5
-text-xs
+text-[11px]
 text-slate-400
 "
 >
@@ -130,9 +128,10 @@ text-slate-400
 
 <p
 className="
-text-xl
+text-[18px]
 font-bold
 mt-1
+whitespace-nowrap
 "
 style={{
 color:color
@@ -142,23 +141,23 @@ color:color
 </p>
 
 
-
 <div
 className="
-mt-5
+mt-6
 space-y-4
 flex-1
 "
 >
 
 {
-menus.map((menu)=>(
+menus.map(menu=>(
+
 <div
 key={menu}
 className="
 flex
 justify-between
-text-xs
+text-[11px]
 text-slate-600
 "
 >
@@ -167,20 +166,16 @@ text-slate-600
 {menu}
 </span>
 
-<span
-style={{
-color:color
-}}
->
+<span style={{color}}>
 ›
 </span>
 
 </div>
+
 ))
 }
 
 </div>
-
 
 
 <button
