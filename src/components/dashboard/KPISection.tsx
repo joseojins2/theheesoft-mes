@@ -29,16 +29,16 @@ export default function KPISection() {
   return (
     <section
       className="
-        mt-8
-        rounded-2xl
+        h-full
+        rounded-xl border border-slate-200
         bg-white
-        p-6
+        p-4
         shadow-sm
       "
     >
 
       <div className="
-        mb-5
+        mb-3
         flex
         items-center
         justify-between
@@ -47,24 +47,15 @@ export default function KPISection() {
         <div>
 
           <h2 className="
-            text-xl
+            text-base
             font-black
             text-slate-800
           ">
             실시간 주요 현황
           </h2>
 
-          <p className="
-            mt-1
-            text-xs
-            text-slate-400
-          ">
-            실시간 업데이트
-          </p>
-
         </div>
-
-
+        <span className="text-[10px] text-slate-400">실시간 업데이트</span>
       </div>
 
 
@@ -72,11 +63,11 @@ export default function KPISection() {
       <div className="
         grid
         grid-cols-4
-        gap-5
+        gap-3
       ">
 
 
-        {kpis.map((item,index)=>(
+        {kpis.map((item)=>(
 
           <div
             key={item.title}
@@ -85,7 +76,7 @@ export default function KPISection() {
               border
               border-slate-100
               bg-white
-              p-5
+              p-3
             "
           >
 
@@ -101,10 +92,7 @@ export default function KPISection() {
 
 
             <div className="
-              mt-4
-              flex
-              items-center
-              gap-5
+              mt-3 flex flex-col items-center gap-2
             ">
 
 
@@ -113,13 +101,12 @@ export default function KPISection() {
               <div
                 className="
                   flex
-                  h-20
-                  w-20
+                  h-20 w-20
                   items-center
                   justify-center
                   rounded-full
                   border-[8px]
-                  border-sky-200
+                  border-blue-500 border-r-slate-100
                 "
               >
 

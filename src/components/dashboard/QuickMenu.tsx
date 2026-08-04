@@ -43,10 +43,10 @@ export default function QuickMenu() {
 
     <section
       className="
-        mt-6
-        rounded-2xl
+        h-full
+        rounded-xl border border-slate-200
         bg-white
-        p-5
+        p-4
         shadow-sm
       "
     >
@@ -56,24 +56,13 @@ export default function QuickMenu() {
 
         <h2
           className="
-            text-xl
+            text-base
             font-black
             text-slate-800
           "
         >
           최근 사용 메뉴
         </h2>
-
-
-        <p
-          className="
-            mt-1
-            text-xs
-            text-slate-400
-          "
-        >
-          자주 사용하는 업무 바로가기
-        </p>
 
 
       </div>
@@ -83,9 +72,7 @@ export default function QuickMenu() {
 
       <div
         className="
-          grid
-          grid-cols-6
-          gap-3
+          space-y-1
         "
       >
 
@@ -103,10 +90,8 @@ export default function QuickMenu() {
                 flex
                 items-center
                 gap-3
-                rounded-xl
-                bg-slate-50
-                px-4
-                py-3
+                w-full border-b border-slate-100
+                px-1 py-1.5
                 text-left
                 transition
                 hover:bg-slate-100
@@ -116,11 +101,10 @@ export default function QuickMenu() {
               <div
                 className="
                   flex
-                  h-9
-                  w-9
+                  h-6 w-6
                   items-center
                   justify-center
-                  rounded-lg
+                  rounded
                   bg-white
                 "
               >

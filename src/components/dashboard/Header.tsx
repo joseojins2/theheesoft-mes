@@ -4,7 +4,6 @@ import {
   Bell,
   LockKeyhole,
   LogOut,
-  User,
 } from "lucide-react";
 
 import { useRouter } from "next/navigation";
@@ -28,24 +27,22 @@ export default function Header() {
 
     <header
       className="
-        mb-6
+        relative
         flex
         items-center
-        justify-between
-        rounded-2xl
-        bg-white
-        px-6
-        py-4
-        shadow-sm
+        justify-center
+        border-b border-slate-200
+        px-2
+        pb-4
       "
     >
 
 
-      <div>
+      <div className="text-center">
 
         <h1
           className="
-            text-2xl
+            text-[32px]
             font-black
             text-slate-800
           "
@@ -57,8 +54,8 @@ export default function Header() {
         <p
           className="
             mt-1
-            text-sm
-            text-slate-400
+            text-base
+            text-slate-600
           "
         >
           한눈에 보는 통합 생산 관리 플랫폼
@@ -71,46 +68,11 @@ export default function Header() {
 
       <div
         className="
-          flex
+          absolute right-0 top-3 flex
           items-center
           gap-3
         "
       >
-
-
-        {/* 사용자 */}
-
-        <div
-          className="
-            flex
-            items-center
-            gap-2
-            rounded-xl
-            bg-slate-50
-            px-4
-            py-2
-          "
-        >
-
-          <User
-            size={18}
-            className="text-blue-500"
-          />
-
-
-          <span
-            className="
-              text-sm
-              font-bold
-              text-slate-700
-            "
-          >
-            관리자
-          </span>
-
-
-        </div>
-
 
 
         <button
@@ -130,8 +92,6 @@ export default function Header() {
         >
 
           <Bell size={16}/>
-
-          알림
 
         </button>
 

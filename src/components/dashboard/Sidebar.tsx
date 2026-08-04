@@ -93,7 +93,7 @@ flex
 h-screen
 w-[220px]
 flex-col
-bg-[#102A43]
+bg-[#5FB8B2]
 text-white
 "
 
@@ -182,7 +182,7 @@ transition
 
 ${index===0
 ?
-"bg-[#5FB8B2] text-white"
+"bg-white/20 text-white shadow-sm"
 :
 "text-white/90 hover:bg-white/10"
 }
