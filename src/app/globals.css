@@ -3,7 +3,13 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
+  /* MES DATA 관리 색상 */
+  --mes-mint: #5FB8B2;
+  --mes-mint-light: #E8F6F4;
+  --mes-border: #B8DED9;
 }
+
 
 @theme inline {
   --color-background: var(--background);
@@ -12,6 +18,7 @@
   --font-mono: var(--font-geist-mono);
 }
 
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
@@ -19,8 +26,48 @@
   }
 }
 
+
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* ==========================
+   MES DATA 관리 공통 스타일
+========================== */
+
+.mes-mint-bg {
+  background-color: var(--mes-mint-light);
+}
+
+
+.mes-mint-card {
+  background-color: var(--mes-mint-light);
+  border: 1px solid var(--mes-border);
+}
+
+
+.mes-mint-header {
+  background-color: var(--mes-mint);
+  color: white;
+}
+
+
+.mes-mint-text {
+  color: var(--mes-mint);
+}
+
+
+.mes-mint-button {
+  border: 1px solid var(--mes-mint);
+  color: var(--mes-mint);
+  transition: all 0.2s ease;
+}
+
+
+.mes-mint-button:hover {
+  background-color: var(--mes-mint);
+  color: white;
 }

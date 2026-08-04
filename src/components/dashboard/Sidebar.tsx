@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 import {
   LayoutDashboard,
   Database,
@@ -11,179 +13,282 @@ import {
   BarChart3,
   QrCode,
   Settings,
+  ChevronRight,
 } from "lucide-react";
 
 
 const menus = [
+
   {
-    title: "Dashboard",
-    icon: LayoutDashboard,
+    title:"Dashboard",
+    icon:LayoutDashboard,
+    path:"/dashboard",
   },
+
   {
-    title: "기준정보",
-    icon: Database,
+    title:"기준정보",
+    icon:Database,
+    path:"/master/data",
   },
+
   {
-    title: "영업/판매",
-    icon: ShoppingCart,
+    title:"영업/판매",
+    icon:ShoppingCart,
+    path:"/sales",
   },
+
   {
-    title: "생산정보",
-    icon: Factory,
+    title:"생산정보",
+    icon:Factory,
+    path:"/production",
   },
+
   {
-    title: "자재정보",
-    icon: Package,
+    title:"자재정보",
+    icon:Package,
+    path:"/material",
   },
+
   {
-    title: "사급정보",
-    icon: Users,
+    title:"사급정보",
+    icon:Users,
+    path:"/supplier",
   },
+
   {
-    title: "발주정보",
-    icon: ClipboardList,
+    title:"발주정보",
+    icon:ClipboardList,
+    path:"/purchase",
   },
+
   {
-    title: "분석정보",
-    icon: BarChart3,
+    title:"분석정보",
+    icon:BarChart3,
+    path:"/analysis",
   },
+
   {
-    title: "바코드정보",
-    icon: QrCode,
+    title:"바코드정보",
+    icon:QrCode,
+    path:"/barcode",
   },
+
 ];
 
 
-export default function Sidebar() {
 
-  return (
-
-    <aside
-      className="
-        flex
-        h-screen
-        w-[190px]
-        shrink-0
-        flex-col
-        bg-[#1769FF]
-        px-3
-        py-5
-        text-white
-      "
-    >
+export default function Sidebar(){
 
 
-      {/* 로고 */}
+return(
 
-      <div className="mb-6 px-2">
+<aside
 
-        <h1
-          className="
-            text-xl
-            font-black
-            tracking-tight
-          "
-        >
-          THEHEESOFT
-        </h1>
+className="
+fixed
+left-0
+top-0
+z-20
+flex
+h-screen
+w-[220px]
+flex-col
+bg-[#102A43]
+text-white
+"
 
-
-        <p
-          className="
-            mt-1
-            text-[11px]
-            text-blue-100
-          "
-        >
-          Smart MES System
-        </p>
-
-      </div>
+>
 
 
+{/* Logo */}
 
-      {/* 메뉴 */}
+<div
 
-      <nav
-        className="
-          flex-1
-          space-y-1
-        "
-      >
+className="
+px-6
+py-7
+"
 
-        {menus.map((menu,index)=>{
+>
 
-          const Icon = menu.icon;
+<h1
 
+className="
+text-2xl
+font-black
+tracking-wide
+"
 
-          return (
+>
 
-            <button
-              key={menu.title}
-              className={`
-                flex
-                h-10
-                w-full
-                items-center
-                gap-3
-                rounded-lg
-                px-3
-                text-sm
-                font-bold
-                transition
+E_MES
 
-                ${
-                  index === 0
-                  ? "bg-white text-blue-600"
-                  : "hover:bg-white/10"
-                }
-              `}
-            >
-
-              <Icon size={18}/>
+</h1>
 
 
-              <span>
-                {menu.title}
-              </span>
+<p
+
+className="
+mt-1
+text-xs
+text-white/60
+"
+
+>
+
+생산 정보 시스템
+
+</p>
 
 
-            </button>
-
-          );
-
-        })}
-
-
-      </nav>
+</div>
 
 
 
-      {/* 설정 */}
 
-      <button
-        className="
-          flex
-          h-10
-          items-center
-          gap-3
-          rounded-lg
-          px-3
-          text-sm
-          font-bold
-          hover:bg-white/10
-        "
-      >
+<nav
 
-        <Settings size={18}/>
+className="
+flex-1
+space-y-1
+px-3
+"
 
-        환경설정
-
-      </button>
+>
 
 
-    </aside>
+{
 
-  );
+menus.map((menu,index)=>(
+
+
+<Link
+
+href={menu.path}
+
+key={menu.title}
+
+className={`
+group
+flex
+items-center
+justify-between
+rounded-lg
+px-4
+py-3
+text-sm
+font-bold
+transition
+
+${index===0
+?
+"bg-[#5FB8B2] text-white"
+:
+"text-white/90 hover:bg-white/10"
+}
+
+`}
+
+>
+
+
+<div
+
+className="
+flex
+items-center
+gap-3
+"
+
+>
+
+<menu.icon
+
+size={19}
+
+/>
+
+
+<span>
+
+{menu.title}
+
+</span>
+
+
+</div>
+
+
+<ChevronRight
+
+size={15}
+
+className="
+opacity-60
+"
+
+/>
+
+
+</Link>
+
+
+))
+
+
+}
+
+
+</nav>
+
+
+
+
+<div
+
+className="
+border-t
+border-white/10
+px-5
+py-5
+"
+
+>
+
+
+<Link
+
+href="/settings"
+
+className="
+flex
+items-center
+gap-3
+text-sm
+font-bold
+text-white/80
+hover:text-white
+"
+
+>
+
+<Settings
+
+size={18}
+
+/>
+
+환경설정
+
+</Link>
+
+
+</div>
+
+
+
+</aside>
+
+);
 
 }

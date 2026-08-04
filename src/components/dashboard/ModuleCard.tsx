@@ -1,14 +1,12 @@
+// src/components/dashboard/ModuleCard.tsx
+
 "use client";
 
 import Link from "next/link";
-import {
-  ArrowRight,
-  LucideIcon,
-} from "lucide-react";
+import { ArrowRight, LucideIcon } from "lucide-react";
 
 
 interface ModuleCardProps {
-
   title:string;
   subtitle:string;
   value:string;
@@ -17,13 +15,11 @@ interface ModuleCardProps {
   menus:string[];
   icon:LucideIcon;
   color:string;
-
+  accent:string;
 }
 
 
-
 export default function ModuleCard({
-
   title,
   subtitle,
   value,
@@ -32,19 +28,19 @@ export default function ModuleCard({
   menus,
   icon:Icon,
   color,
+  accent,
 
 }:ModuleCardProps){
 
 
-return(
+return (
 
 <Link
-
 href={path}
-
 className="
+relative
 flex
-h-[430px]
+h-[520px]
 flex-col
 overflow-hidden
 rounded-xl
@@ -53,194 +49,150 @@ border-slate-200
 bg-white
 shadow-sm
 transition
-hover:-translate-y-1
 hover:shadow-md
 "
-
 >
 
 
-<div
+{/* 상단 컬러 영역 */}
 
+<div
 className="
+h-[125px]
 flex
-h-[95px]
 items-center
 justify-center
 "
-
 style={{
 backgroundColor:color
 }}
-
 >
 
-
 <div
-
 className="
 flex
-h-14
-w-14
+h-[90px]
+w-[90px]
 items-center
 justify-center
 rounded-full
 bg-white
+shadow
 "
-
 >
 
 <Icon
-
-size={28}
-
+size={42}
 style={{
-color
+color:accent
 }}
-
 />
 
 </div>
 
-
 </div>
 
 
 
-
 <div
-
 className="
 flex
 flex-1
 flex-col
-p-3
+px-4
+py-5
 "
-
 >
 
 
 <p
-
 className="
-text-[10px]
+text-[11px]
 font-bold
 text-slate-400
 "
-
 >
-
 {subtitle}
-
 </p>
 
 
-
-<h3
-
+<h2
 className="
-mt-1
-text-base
+mt-2
+text-[18px]
 font-black
 text-slate-800
 "
-
 >
-
 {title}
-
-</h3>
-
+</h2>
 
 
 
 <p
-
 className="
-mt-3
-text-[11px]
-text-slate-400
+mt-5
+text-xs
+text-slate-500
 "
-
 >
-
 {summary}
-
 </p>
 
 
-
 <p
-
 className="
-text-lg
+mt-1
+text-[22px]
 font-black
 "
-
 style={{
-color
+color:accent
 }}
-
 >
-
 {value}
-
 </p>
-
 
 
 
 <div
-
 className="
-mt-4
+mt-6
+space-y-4
 flex-1
-space-y-2
 "
-
 >
-
 
 {
 menus.map((menu)=>(
 
 <div
-
 key={menu}
-
 className="
 flex
 items-center
 justify-between
-text-[11px]
+text-[13px]
 text-slate-600
 "
-
 >
 
 <span>
-
 {menu}
-
 </span>
 
 
 <ArrowRight
-
-size={12}
-
-className="text-slate-300"
-
+size={14}
+style={{
+color:accent
+}}
 />
-
 
 </div>
 
-
 ))
 }
-
-
 
 </div>
 
@@ -248,41 +200,37 @@ className="text-slate-300"
 
 
 <div
-
 className="
-flex
-h-8
-items-center
-justify-center
-rounded-md
-border
-text-xs
-font-bold
+mt-auto
+pt-4
 "
-
-style={{
-
-borderColor:color,
-color
-
-}}
-
 >
 
+<button
+className="
+h-9
+w-full
+rounded-lg
+border
+text-sm
+font-bold
+"
+style={{
+borderColor:accent,
+color:accent
+}}
+>
 바로가기 →
+</button>
 
 </div>
 
 
-
 </div>
-
 
 
 </Link>
 
-
 );
-
 
 }
