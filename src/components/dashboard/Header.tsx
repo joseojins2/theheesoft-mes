@@ -3,7 +3,7 @@
 import {
   Bell,
   LockKeyhole,
-  LogOut,
+  LogIn,
 } from "lucide-react";
 
 import { useRouter } from "next/navigation";
@@ -14,11 +14,7 @@ export default function Header() {
   const router = useRouter();
 
 
-  const handleLogout = async () => {
-
-    // 추후 토큰 삭제 / DB 세션 종료 연결
-
-    await fetch("/api/logout", { method: "POST" });
+  const handleLogin = () => {
     router.push("/login");
 
   };
@@ -124,7 +120,7 @@ export default function Header() {
 
 
         <button
-          onClick={handleLogout}
+          onClick={handleLogin}
           className="
             flex
             h-10
@@ -139,9 +135,9 @@ export default function Header() {
           "
         >
 
-          <LogOut size={16}/>
+          <LogIn size={16}/>
 
-          로그아웃
+          로그인
 
         </button>
 
