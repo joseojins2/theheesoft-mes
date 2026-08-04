@@ -1,267 +1,179 @@
-"use client";
-
-import Link from "next/link";
-import { ArrowRight, LucideIcon } from "lucide-react";
-
-
-interface ModuleCardProps {
-
-title:string;
-subtitle:string;
-value:string;
-summary:string;
-path:string;
-menus:string[];
-icon:LucideIcon;
-color:string;
-accent:string;
-
+interface Props {
+  type: string;
+  title: string;
+  valueTitle: string;
+  value: string;
+  color: string;
+  items: string[];
 }
 
+const colors:any = {
+  blue:{
+    bg:"#2563eb",
+    text:"#2563eb"
+  },
+  green:{
+    bg:"#16a34a",
+    text:"#16a34a"
+  },
+  orange:{
+    bg:"#f97316",
+    text:"#f97316"
+  },
+  purple:{
+    bg:"#7c3aed",
+    text:"#7c3aed"
+  },
+  cyan:{
+    bg:"#0891b2",
+    text:"#0891b2"
+  },
+  red:{
+    bg:"#ef4444",
+    text:"#ef4444"
+  },
+  dark:{
+    bg:"#334155",
+    text:"#334155"
+  }
+};
 
 
 export default function ModuleCard({
+  type,
+  title,
+  valueTitle,
+  value,
+  color,
+  items
+}:Props){
 
-title,
-subtitle,
-value,
-summary,
-path,
-menus,
-icon:Icon,
-color,
-accent,
+const c = colors[color];
 
-}:ModuleCardProps){
-
-
-return(
-
-<Link
-
-href={path}
-
+return (
+<div
 className="
-relative
-flex
-h-[420px]
-flex-col
-overflow-hidden
+bg-white
 rounded-xl
 border
-border-slate-200
-bg-white
 shadow-sm
-transition
-hover:shadow-md
+overflow-hidden
+h-[520px]
+flex
+flex-col
 "
-
 >
 
-
 <div
-
 className="
+h-[125px]
 flex
-h-[100px]
 items-center
 justify-center
 "
-
 style={{
-backgroundColor:color
+background:c.bg
 }}
-
 >
 
-
 <div
-
 className="
-flex
-h-16
-w-16
-items-center
-justify-center
+w-20
+h-20
 rounded-full
 bg-white
-shadow
-"
-
->
-
-<Icon
-
-size={34}
-
-style={{
-color:accent
-}}
-
-/>
-
-</div>
-
-
-</div>
-
-
-
-<div
-
-className="
 flex
-flex-1
-flex-col
-p-4
+items-center
+justify-center
+text-3xl
 "
-
 >
+◉
+</div>
+
+</div>
 
 
-<p className="
-text-[10px]
-font-bold
-text-slate-400
-">
+<div className="p-5 flex flex-col flex-1">
 
-{subtitle}
 
+<p className="text-xs text-gray-400 font-bold">
+{type}
 </p>
 
-
-<h2 className="
-mt-1
-text-base
-font-black
-text-slate-800
-">
-
+<h2 className="text-xl font-bold mt-2">
 {title}
-
 </h2>
 
 
-
-<p className="
-mt-4
-text-xs
-text-slate-400
-">
-
-{summary}
-
+<p className="text-sm text-gray-400 mt-5">
+{valueTitle}
 </p>
 
 
 <p
-
-className="
-text-xl
-font-black
-"
-
+className="text-2xl font-bold mt-1"
 style={{
-color:accent
+color:c.text
 }}
-
 >
-
 {value}
-
 </p>
 
 
-
-
-<div
-
-className="
-mt-5
-flex-1
-space-y-3
-"
-
->
+<div className="mt-6 space-y-3 flex-1">
 
 {
-
-menus.map((menu)=>(
-
+items.map((item)=>(
 <div
-
-key={menu}
-
+key={item}
 className="
 flex
 justify-between
-text-xs
-text-slate-600
+text-sm
+text-gray-600
 "
-
 >
 
 <span>
-
-{menu}
-
+{item}
 </span>
 
-
-<ArrowRight
-
-size={12}
-
+<span
 style={{
-color:accent
+color:c.text
 }}
-
-/>
-
+>
+›
+</span>
 
 </div>
-
 ))
-
 }
 
-
 </div>
-
 
 
 <button
-
 className="
-mt-3
-h-9
-w-full
+h-10
 rounded-lg
 border
-text-xs
 font-bold
+text-sm
 "
-
 style={{
-
-borderColor:accent,
-color:accent
-
+borderColor:c.text,
+color:c.text
 }}
-
 >
-
 바로가기 →
-
 </button>
-
 
 
 </div>
 
-
-</Link>
-
-);
+</div>
+)
 
 }
