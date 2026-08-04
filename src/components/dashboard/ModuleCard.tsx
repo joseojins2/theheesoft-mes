@@ -1,68 +1,40 @@
 interface Props {
-  type: string;
-  title: string;
-  valueTitle: string;
-  value: string;
-  color: string;
-  items: string[];
+  title:string;
+  eng:string;
+  value:string;
+  label:string;
+  color:string;
+  menus:string[];
 }
-
-const colors:any = {
-  blue:{
-    bg:"#2563eb",
-    text:"#2563eb"
-  },
-  green:{
-    bg:"#16a34a",
-    text:"#16a34a"
-  },
-  orange:{
-    bg:"#f97316",
-    text:"#f97316"
-  },
-  purple:{
-    bg:"#7c3aed",
-    text:"#7c3aed"
-  },
-  cyan:{
-    bg:"#0891b2",
-    text:"#0891b2"
-  },
-  red:{
-    bg:"#ef4444",
-    text:"#ef4444"
-  },
-  dark:{
-    bg:"#334155",
-    text:"#334155"
-  }
-};
 
 
 export default function ModuleCard({
-  type,
   title,
-  valueTitle,
+  eng,
   value,
+  label,
   color,
-  items
+  menus
 }:Props){
 
-const c = colors[color];
-
 return (
+
 <div
 className="
-bg-white
+h-[520px]
 rounded-xl
+bg-white
 border
+border-slate-200
 shadow-sm
 overflow-hidden
-h-[520px]
 flex
 flex-col
 "
 >
+
+
+{/* 상단 색상 영역 */}
 
 <div
 className="
@@ -70,78 +42,134 @@ h-[125px]
 flex
 items-center
 justify-center
+relative
 "
 style={{
-background:c.bg
+backgroundColor:color
 }}
 >
 
 <div
 className="
-w-20
-h-20
+absolute
+bottom-[-35px]
+w-[75px]
+h-[75px]
 rounded-full
 bg-white
+border
 flex
 items-center
 justify-center
-text-3xl
+shadow
 "
 >
-◉
-</div>
+
+<div
+className="
+w-10
+h-10
+rounded-full
+border-4
+"
+style={{
+borderColor:color
+}}
+/>
 
 </div>
 
+</div>
 
-<div className="p-5 flex flex-col flex-1">
 
 
-<p className="text-xs text-gray-400 font-bold">
-{type}
+<div
+className="
+pt-12
+px-4
+flex
+flex-col
+flex-1
+"
+>
+
+
+<p
+className="
+text-[11px]
+font-bold
+text-slate-400
+"
+>
+{eng}
 </p>
 
-<h2 className="text-xl font-bold mt-2">
+
+<h2
+className="
+text-[18px]
+font-bold
+mt-1
+"
+>
 {title}
 </h2>
 
 
-<p className="text-sm text-gray-400 mt-5">
-{valueTitle}
+
+<p
+className="
+mt-5
+text-xs
+text-slate-400
+"
+>
+{label}
 </p>
 
 
 <p
-className="text-2xl font-bold mt-1"
+className="
+text-xl
+font-bold
+mt-1
+"
 style={{
-color:c.text
+color:color
 }}
 >
 {value}
 </p>
 
 
-<div className="mt-6 space-y-3 flex-1">
+
+<div
+className="
+mt-5
+space-y-4
+flex-1
+"
+>
 
 {
-items.map((item)=>(
+menus.map((menu)=>(
 <div
-key={item}
+key={menu}
 className="
 flex
 justify-between
-text-sm
-text-gray-600
+text-xs
+text-slate-600
 "
 >
 
 <span>
-{item}
+{menu}
 </span>
 
 <span
 style={{
-color:c.text
+color:color
 }}
 >
 ›
@@ -154,17 +182,18 @@ color:c.text
 </div>
 
 
+
 <button
 className="
-h-10
+h-9
 rounded-lg
 border
+text-xs
 font-bold
-text-sm
 "
 style={{
-borderColor:c.text,
-color:c.text
+borderColor:color,
+color:color
 }}
 >
 바로가기 →
@@ -173,7 +202,9 @@ color:c.text
 
 </div>
 
+
 </div>
+
 )
 
 }
