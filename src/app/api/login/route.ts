@@ -12,14 +12,9 @@ export async function POST(request: Request) {
     );
   }
 
-  const masterId = process.env.MES_MASTER_ID;
-  const masterPassword = process.env.MES_MASTER_PASSWORD;
-  if (!masterId || !masterPassword) {
-    return NextResponse.json(
-      { message: "관리자 로그인 환경변수가 설정되지 않았습니다." },
-      { status: 500 },
-    );
-  }
+  // 배포 환경변수가 있으면 해당 값을 사용하고, 없으면 초기 계정을 사용합니다.
+  const masterId = process.env.MES_MASTER_ID || "theheesoftmaster";
+  const masterPassword = process.env.MES_MASTER_PASSWORD || "master0123";
   const isMaster = id === masterId && password === masterPassword;
   const response = NextResponse.json({ isMaster });
 
